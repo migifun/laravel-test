@@ -1,6 +1,6 @@
-# 受付アプリ
+Laravel を vibe coding で触ってみただけの学習用テストです。
 
-Laravel を vibe coding で触ってみただけのテスト
+# 受付アプリ
 
 Laravel で作ったシンプルな来客受付管理アプリです。
 
