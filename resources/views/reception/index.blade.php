@@ -89,6 +89,20 @@
             transition: background 0.2s;
         }
         .logout-btn:hover { background: #c53030; }
+        .delete-btn {
+            padding: 4px 12px;
+            background: none;
+            color: #e53e3e;
+            border: 1px solid #e53e3e;
+            border-radius: 6px;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .delete-btn:hover {
+            background: #e53e3e;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -113,6 +127,7 @@
                         <th>会社名</th>
                         <th>ご用件</th>
                         <th>受付時刻</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -132,6 +147,13 @@
                                 </span>
                             </td>
                             <td>{{ $r->created_at->format('Y/m/d H:i') }}</td>
+                            <td>
+                                <form method="POST" action="{{ route('reception.destroy', $r) }}" onsubmit="return confirm('この受付を削除しますか？')">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="delete-btn">削除</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -35,4 +35,11 @@ class ReceptionController extends Controller
         $receptions = Reception::latest()->get();
         return view('reception.index', compact('receptions'));
     }
+
+    public function destroy(Reception $reception)
+    {
+        $reception->delete();
+
+        return redirect()->route('reception.index');
+    }
 }

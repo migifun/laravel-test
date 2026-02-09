@@ -12,6 +12,10 @@ Route::get('/reception', [ReceptionController::class, 'index'])
     ->middleware(['auth', 'admin'])
     ->name('reception.index');
 
+Route::delete('/reception/{reception}', [ReceptionController::class, 'destroy'])
+    ->middleware(['auth', 'admin'])
+    ->name('reception.destroy');
+
 Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
